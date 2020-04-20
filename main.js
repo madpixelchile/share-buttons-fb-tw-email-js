@@ -1,5 +1,14 @@
 window.onload = function(){
 	
+	allShareButtons();
+	
+};
+
+
+
+
+function allShareButtons(){
+	
 	var windowLocationUrl = window.location.href;
 	var pageTitle = document.querySelector('meta[property~="og:title"]').getAttribute('content');
 	var allShareButtons = document.querySelectorAll('[data-share-button]');
@@ -57,4 +66,4 @@ window.onload = function(){
 
 	}
 
-};
+}
