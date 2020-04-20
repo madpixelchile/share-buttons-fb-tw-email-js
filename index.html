@@ -6,99 +6,22 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width">
 		<title>Share buttons</title>
-		<meta property="og:title" content="Seguro de Vida: Claves para Entender Cómo Funciona"> <!--Reemplazar etiqueta y content en caso de otro uso-->
+		<meta property="og:title" content="Contenido de mi sección"> <!--Reemplazar etiqueta y content en caso de otro uso-->
 		<meta name="description" content="" />
 		<meta name="theme-color" content="#191C33" />
 
-		<script>
-
-			window.onload = function(){
-				
-				var windowLocationUrl = window.location.href;
-				var pageTitle = document.querySelector('meta[property~="og:title"]').getAttribute('content');
-
-				if(pageTitle === null){
-					pageTitle = 'Articulo compartido desde Mi página';
-				}else{
-					pageTitle = pageTitle + ' - Compartido desde Mi página';
-				}
-			
-				function shareFacebook(e){
-					e.preventDefault();
-					var item = e.target;
-					if(item.classList.contains('share-facebook')){
-					
-						var url 		= item.getAttribute('href');
-						var itemTitle 	= 'Fb Share';
-						var descr 		= 'Facebook share popup';
-						var image 		= 'https://goo.gl/dS52U';
-						var winWidth 	= 520;
-						var winHeight 	= 350;
-						
-						var winTop 		= (screen.height / 2) - (winHeight / 2);
-						var winLeft 	= (screen.width / 2) - (winWidth / 2);
-						window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + itemTitle + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
-					}
-					
-				}
-
-
-				function shareTwitter(e){
-					e.preventDefault();
-					var item = e.target;
-
-					if(item.classList.contains('share-twitter')){
-
-						var winWidth 	= 600;
-						var winHeight 	= 350;
-
-						var winTop 		= (screen.height / 2) - (winHeight / 2);
-						var winLeft 	= (screen.width / 2) - (winWidth / 2);
-
-						var twitterWindow = window.open('https://twitter.com/share?url=' + windowLocationUrl, 'twitter-popup', 'height='+ winHeight +',width='+ winWidth +', top=' + winTop + ',left=' + winLeft + '');
-						if(twitterWindow.focus) { 
-							twitterWindow.focus(); 
-						}
-						return false;
-
-					}
-
-				}
-
-				var allfacebookButtons = document.querySelectorAll('[data-share-facebook]');
-				var allTwitterButtons = document.querySelectorAll('[data-share-twitter]');
-				var allShareEmailButtons = document.querySelectorAll('[data-share-email]');
-				
-				for(var i  = 0; allfacebookButtons[i]; i ++ ){
-					allfacebookButtons[i].setAttribute('href', windowLocationUrl);
-					allfacebookButtons[i].addEventListener('click',shareFacebook);
-				}
-				
-				for(var index = 0; allTwitterButtons[index]; index ++ ){
-					allTwitterButtons[index].setAttribute('href', windowLocationUrl);
-					allTwitterButtons[index].addEventListener('click',shareTwitter); 
-				}
-
-				for(var indexTwo  = 0; allShareEmailButtons[indexTwo]; indexTwo ++ ){
-					allShareEmailButtons[indexTwo].setAttribute('href', 'mailto:?subject=' + pageTitle + '&body=' + windowLocationUrl );
-				}
-
-			};
-
-
-		</script>
-
+		<script src='main.js'></script>
 
 	</head>
 	<body>
-		
-		<a class="share-facebook" data-share-facebook="true">Share facebook 1</a>
-		<a class="share-facebook" data-share-facebook="true">Share facebook 2</a>
 
-		<a class="share-twitter" data-share-twitter="true">Share twitter 1</a>
-		<a class="share-twitter" data-share-twitter="true">Share twitter 2</a>
+		<a href="#" data-share-button="facebook">Share button Facebook 1 hoal</a>
+		<a href="#" data-share-button="facebook">Share button Facebook 2</a>
+		<a href="#" data-share-button="twitter">Share twitter 1</a>
+		<a href="#" data-share-button="twitter">Share twitter 2</a>
 
-		<a data-share-email="true">Share Email</a>
+		<a href="#" data-share-button="email">Share Email 1</a>
+		<a href="#" data-share-button="email">Share Email 1</a>
 
 	</body>
 </html>
