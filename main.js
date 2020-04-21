@@ -4,9 +4,6 @@ window.onload = function(){
 	
 };
 
-
-
-
 function allShareButtons(){
 	
 	var windowLocationUrl = window.location.href;
@@ -18,9 +15,6 @@ function allShareButtons(){
 		e.preventDefault();
 		var item = e.target;
 
-		var winTop 		= (screen.height / 2) - (winHeight / 2);
-		var winLeft 	= (screen.width / 2) - (winWidth / 2);
-
 		if(item.getAttribute('data-share-button') === 'facebook'){
 
 			var url 		= item.getAttribute('href');
@@ -29,6 +23,8 @@ function allShareButtons(){
 			var image 		= 'https://goo.gl/dS52U';
 			var winWidth 	= 520;
 			var winHeight 	= 350;
+			var winTop 		= (screen.height / 2) - (winHeight / 2);
+			var winLeft 	= (screen.width / 2) - (winWidth / 2);
 			
 			window.open('https://www.facebook.com/sharer.php?s=100&p[title]=' + itemTitle + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
 
@@ -38,6 +34,8 @@ function allShareButtons(){
 
 			var winWidth 	= 600;
 			var winHeight 	= 350;
+			var winTop 		= (screen.height / 2) - (winHeight / 2);
+			var winLeft 	= (screen.width / 2) - (winWidth / 2);
 
 			var twitterWindow = window.open('https://twitter.com/share?url=' + windowLocationUrl, 'twitter-popup', 'height='+ winHeight +',width='+ winWidth +', top=' + winTop + ',left=' + winLeft + '');
 			if(twitterWindow.focus) { 
